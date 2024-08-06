@@ -1,0 +1,45 @@
+---
+- name: Install Git, Docker, and Docker Compose 
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update apt repository and upgrade packages
+      apt:
+        update_cache: yes
+        upgrade: yes
+
+    - name: Install Git
+      apt:
+        name: git
+        state: present
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Start and enable Docker service
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Install pip for Python 3
+      apt:
+        name: python3-pip
+        state: present
+
+    - name: Upgrade pip
+      pip:
+        name: pip
+        executable: pip3
+
+    - name: Install setuptools_rust
+      pip:
+        name: setuptools-rust
+        executable: pip3
+
+    - name: Install Docker Compose
+      apt:
+        name: docker-compose
+        state: present
