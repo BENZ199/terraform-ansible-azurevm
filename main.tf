@@ -28,6 +28,48 @@ resource "azurerm_public_ip" "PUB_IP" {
   allocation_method   = "Dynamic"
 }
 
+resource "azurerm_network_security_group" "nsg" {
+  name                = "Prod_NSG"
+  location            = azurerm_resource_group.Production.location
+  resource_group_name = azurerm_resource_group.Production.name
+
+  security_rule {
+    name                       = "Allow-HTTP"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "*"
+    destination_address_prefix  = "*"
+  }
+
+  security_rule {
+    name                       = "Allow-HTTPS"
+    priority                   = 110
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "443"
+    source_address_prefix      = "*"
+    destination_address_prefix  = "*"
+  }
+
+  security_rule {
+    name                       = "Allow-SSH"
+    priority                   = 120
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix  = "*"
+  }
+}
+
 resource "azurerm_network_interface" "Nic" {
   name                = "Prod_Nic"
   location            = azurerm_resource_group.Production.location
@@ -37,8 +79,13 @@ resource "azurerm_network_interface" "Nic" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.Subnet.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = azurerm_public_ip.PUB_IP.id
+    public_ip_address_id          = azurerm_public_ip.PUB_IP.id
   }
+}
+
+resource "azurerm_subnet_network_security_group_association" "subnet_nsg_association" {
+  subnet_id                 = azurerm_subnet.Subnet.id
+  network_security_group_id = azurerm_network_security_group.nsg.id
 }
 
 resource "azurerm_virtual_machine" "ProdSrv" {
@@ -50,8 +97,8 @@ resource "azurerm_virtual_machine" "ProdSrv" {
 
   storage_image_reference {
     publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts"
     version   = "latest"
   }
 

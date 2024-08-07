@@ -1,78 +1,52 @@
-2024-08-06 20:09:12,007 p=69206 u=youssef n=ansible | PLAY [Install Git, Docker, and Docker Compose on Ubuntu 18.04] *****************
-2024-08-06 20:09:12,018 p=69206 u=youssef n=ansible | TASK [Gathering Facts] *********************************************************
-2024-08-06 20:09:21,373 p=69206 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:09:21,403 p=69206 u=youssef n=ansible | TASK [Update apt repository and upgrade packages] ******************************
-2024-08-06 20:11:02,008 p=69206 u=youssef n=ansible | changed: [52.172.169.249]
-2024-08-06 20:11:02,020 p=69206 u=youssef n=ansible | TASK [Install Git] *************************************************************
-2024-08-06 20:11:07,600 p=69206 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:11:07,607 p=69206 u=youssef n=ansible | TASK [Install Docker] **********************************************************
-2024-08-06 20:11:36,233 p=69206 u=youssef n=ansible | changed: [52.172.169.249]
-2024-08-06 20:11:36,245 p=69206 u=youssef n=ansible | TASK [Start and enable Docker service] *****************************************
-2024-08-06 20:11:41,378 p=69206 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:11:41,386 p=69206 u=youssef n=ansible | TASK [Install dependencies for Docker Compose] *********************************
-2024-08-06 20:12:43,485 p=69206 u=youssef n=ansible | changed: [52.172.169.249]
-2024-08-06 20:12:43,496 p=69206 u=youssef n=ansible | TASK [Install Docker Compose] **************************************************
-2024-08-06 20:12:55,975 p=69206 u=youssef n=ansible | fatal: [52.172.169.249]: FAILED! => {"changed": false, "cmd": ["/usr/bin/python3", "-m", "pip.__main__", "install", "docker-compose"], "msg": "stdout: Collecting docker-compose\n  Downloading https://files.pythonhosted.org/packages/f3/3e/ca05e486d44e38eb495ca60b8ca526b192071717387346ed1031ecf78966/docker_compose-1.29.2-py2.py3-none-any.whl (114kB)\nRequirement already satisfied: PyYAML<6,>=3.10 in /usr/lib/python3/dist-packages (from docker-compose)\nCollecting distro<2,>=1.5.0 (from docker-compose)\n  Downloading https://files.pythonhosted.org/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl\nCollecting websocket-client<1,>=0.32.0 (from docker-compose)\n  Downloading https://files.pythonhosted.org/packages/f7/0c/d52a2a63512a613817846d430d16a8fbe5ea56dd889e89c68facf6b91cb6/websocket_client-0.59.0-py2.py3-none-any.whl (67kB)\nCollecting docopt<1,>=0.6.1 (from docker-compose)\n  Downloading https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz\nCollecting python-dotenv<1,>=0.13.0 (from docker-compose)\n  Downloading https://files.pythonhosted.org/packages/30/5f/2e5c564bd86349fe6b82ca840f46acf6f4bb76d79ba9057fce3d3e008864/python_dotenv-0.20.0-py3-none-any.whl\nCollecting texttable<2,>=0.9.0 (from docker-compose)\n  Downloading https://files.pythonhosted.org/packages/24/99/4772b8e00a136f3e01236de33b0efda31ee7077203ba5967fcc76da94d65/texttable-1.7.0-py2.py3-none-any.whl\nRequirement already satisfied: jsonschema<4,>=2.5.1 in /usr/lib/python3/dist-packages (from docker-compose)\nCollecting cached-property<2,>=1.2.0; python_version < \"3.8\" (from docker-compose)\n  Downloading https://files.pythonhosted.org/packages/48/19/f2090f7dad41e225c7f2326e4cfe6fff49e57dedb5b53636c9551f86b069/cached_property-1.5.2-py2.py3-none-any.whl\nCollecting dockerpty<1,>=0.4.1 (from docker-compose)\n  Downloading https://files.pythonhosted.org/packages/8d/ee/e9ecce4c32204a6738e0a5d5883d3413794d7498fe8b06f44becc028d3ba/dockerpty-0.4.1.tar.gz\nCollecting requests<3,>=2.20.0 (from docker-compose)\n  Downloading https://files.pythonhosted.org/packages/2d/61/08076519c80041bc0ffa1a8af0cbd3bf3e2b62af10435d269a9d0f40564d/requests-2.27.1-py2.py3-none-any.whl (63kB)\nCollecting docker[ssh]>=5 (from docker-compose)\n  Downloading https://files.pythonhosted.org/packages/54/f3/7af47ead249fbb798d64a0438bad5c26f17ef6ac5cd324d802038eb10d90/docker-5.0.3-py2.py3-none-any.whl (146kB)\nRequirement already satisfied: six in /usr/lib/python3/dist-packages (from websocket-client<1,>=0.32.0->docker-compose)\nRequirement already satisfied: urllib3<1.27,>=1.21.1 in /usr/lib/python3/dist-packages (from requests<3,>=2.20.0->docker-compose)\nRequirement already satisfied: certifi>=2017.4.17 in /usr/lib/python3/dist-packages (from requests<3,>=2.20.0->docker-compose)\nCollecting charset-normalizer~=2.0.0; python_version >= \"3\" (from requests<3,>=2.20.0->docker-compose)\n  Downloading https://files.pythonhosted.org/packages/06/b3/24afc8868eba069a7f03650ac750a778862dc34941a4bebeb58706715726/charset_normalizer-2.0.12-py3-none-any.whl\nRequirement already satisfied: idna<4,>=2.5; python_version >= \"3\" in /usr/lib/python3/dist-packages (from requests<3,>=2.20.0->docker-compose)\nCollecting paramiko>=2.4.2; extra == \"ssh\" (from docker[ssh]>=5->docker-compose)\n  Downloading https://files.pythonhosted.org/packages/ad/50/8792484502c8141c20c996b802fefa8435a9c018a2bb440a06b172782118/paramiko-3.4.0-py3-none-any.whl (225kB)\nCollecting bcrypt>=3.2 (from paramiko>=2.4.2; extra == \"ssh\"->docker[ssh]>=5->docker-compose)\n  Downloading https://files.pythonhosted.org/packages/8c/ae/3af7d006aacf513975fd1948a6b4d6f8b4a307f8a244e1a3d3774b297aad/bcrypt-4.0.1.tar.gz\n    Complete output from command python setup.py egg_info:\n    Traceback (most recent call last):\n      File \"<string>\", line 1, in <module>\n      File \"/tmp/pip-build-3otqbnq6/bcrypt/setup.py\", line 11, in <module>\n        from setuptools_rust import RustExtension\n    ModuleNotFoundError: No module named 'setuptools_rust'\n    \n            =============================DEBUG ASSISTANCE==========================\n            If you are seeing an error here please try the following to\n            successfully install bcrypt:\n    \n            Upgrade to the latest pip and try again. This will fix errors for most\n            users. See: https://pip.pypa.io/en/stable/installing/#upgrading-pip\n            =============================DEBUG ASSISTANCE==========================\n    \n    \n    ----------------------------------------\n\n:stderr: Command \"python setup.py egg_info\" failed with error code 1 in /tmp/pip-build-3otqbnq6/bcrypt/\n"}
-2024-08-06 20:12:55,977 p=69206 u=youssef n=ansible | PLAY RECAP *********************************************************************
-2024-08-06 20:12:55,978 p=69206 u=youssef n=ansible | 52.172.169.249             : ok=6    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
-2024-08-06 20:13:55,604 p=71112 u=youssef n=ansible | PLAY [Install Git, Docker, and Docker Compose on Ubuntu 18.04] *****************
-2024-08-06 20:13:55,616 p=71112 u=youssef n=ansible | TASK [Gathering Facts] *********************************************************
-2024-08-06 20:14:04,596 p=71112 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:14:04,631 p=71112 u=youssef n=ansible | TASK [Update apt repository and upgrade packages] ******************************
-2024-08-06 20:14:11,446 p=71112 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:14:11,453 p=71112 u=youssef n=ansible | TASK [Install Git] *************************************************************
-2024-08-06 20:14:16,986 p=71112 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:14:16,998 p=71112 u=youssef n=ansible | TASK [Install Docker] **********************************************************
-2024-08-06 20:14:21,978 p=71112 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:14:21,986 p=71112 u=youssef n=ansible | TASK [Start and enable Docker service] *****************************************
-2024-08-06 20:14:27,432 p=71112 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:14:27,439 p=71112 u=youssef n=ansible | TASK [Install pip for Python 3] ************************************************
-2024-08-06 20:14:32,319 p=71112 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:14:32,331 p=71112 u=youssef n=ansible | TASK [Upgrade pip] *************************************************************
-2024-08-06 20:14:38,479 p=71112 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:14:38,493 p=71112 u=youssef n=ansible | TASK [Install setuptools_rust] *************************************************
-2024-08-06 20:14:46,977 p=71112 u=youssef n=ansible | changed: [52.172.169.249]
-2024-08-06 20:14:46,989 p=71112 u=youssef n=ansible | TASK [Install Docker Compose] **************************************************
-2024-08-06 20:17:36,570 p=71112 u=youssef n=ansible |  [ERROR]: User interrupted execution
-
-2024-08-06 20:17:39,083 p=73049 u=youssef n=ansible | PLAY [Install Git, Docker, and Docker Compose] *********************************
-2024-08-06 20:17:39,095 p=73049 u=youssef n=ansible | TASK [Gathering Facts] *********************************************************
-2024-08-06 20:17:45,882 p=73049 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:17:45,913 p=73049 u=youssef n=ansible | TASK [Update apt repository and upgrade packages] ******************************
-2024-08-06 20:17:52,952 p=73049 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:17:52,966 p=73049 u=youssef n=ansible | TASK [Install Git] *************************************************************
-2024-08-06 20:17:58,669 p=73049 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:17:58,681 p=73049 u=youssef n=ansible | TASK [Install Docker] **********************************************************
-2024-08-06 20:18:03,903 p=73049 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:18:03,911 p=73049 u=youssef n=ansible | TASK [Start and enable Docker service] *****************************************
-2024-08-06 20:18:08,687 p=73049 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:18:08,701 p=73049 u=youssef n=ansible | TASK [Install pip for Python 3] ************************************************
-2024-08-06 20:18:12,861 p=73049 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:18:12,874 p=73049 u=youssef n=ansible | TASK [Upgrade pip] *************************************************************
-2024-08-06 20:18:18,050 p=73049 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:18:18,057 p=73049 u=youssef n=ansible | TASK [Install setuptools_rust] *************************************************
-2024-08-06 20:18:23,753 p=73049 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:18:23,760 p=73049 u=youssef n=ansible | TASK [Install Docker Compose] **************************************************
-2024-08-06 20:23:02,989 p=73049 u=youssef n=ansible |  [ERROR]: User interrupted execution
-
-2024-08-06 20:23:36,613 p=75605 u=youssef n=ansible | PLAY [Install Git, Docker, and Docker Compose] *********************************
-2024-08-06 20:23:36,623 p=75605 u=youssef n=ansible | TASK [Gathering Facts] *********************************************************
-2024-08-06 20:23:42,469 p=75605 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:23:42,515 p=75605 u=youssef n=ansible | TASK [Update apt repository and upgrade packages] ******************************
-2024-08-06 20:23:48,243 p=75605 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:23:48,249 p=75605 u=youssef n=ansible | TASK [Install Git] *************************************************************
-2024-08-06 20:23:52,605 p=75605 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:23:52,618 p=75605 u=youssef n=ansible | TASK [Install Docker] **********************************************************
-2024-08-06 20:23:57,387 p=75605 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:23:57,398 p=75605 u=youssef n=ansible | TASK [Start and enable Docker service] *****************************************
-2024-08-06 20:24:02,347 p=75605 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:24:02,356 p=75605 u=youssef n=ansible | TASK [Install pip for Python 3] ************************************************
-2024-08-06 20:24:06,446 p=75605 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:24:06,460 p=75605 u=youssef n=ansible | TASK [Upgrade pip] *************************************************************
-2024-08-06 20:24:12,025 p=75605 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:24:12,037 p=75605 u=youssef n=ansible | TASK [Install setuptools_rust] *************************************************
-2024-08-06 20:24:17,256 p=75605 u=youssef n=ansible | ok: [52.172.169.249]
-2024-08-06 20:24:17,269 p=75605 u=youssef n=ansible | TASK [Install Docker Compose] **************************************************
-2024-08-06 20:24:49,360 p=75605 u=youssef n=ansible | changed: [52.172.169.249]
-2024-08-06 20:24:49,390 p=75605 u=youssef n=ansible | PLAY RECAP *********************************************************************
-2024-08-06 20:24:49,391 p=75605 u=youssef n=ansible | 52.172.169.249             : ok=9    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-08-07 12:07:49,104 p=146106 u=youssef n=ansible | PLAY [Install Git, Docker, and Docker Compose] *********************************
+2024-08-07 12:07:49,111 p=146106 u=youssef n=ansible | TASK [Gathering Facts] *********************************************************
+2024-08-07 12:07:49,766 p=146106 u=youssef n=ansible | fatal: [74.225.176.128]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Unable to negotiate with 74.225.176.128 port 22: no matching host key type found. Their offer: rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519", "unreachable": true}
+2024-08-07 12:07:49,768 p=146106 u=youssef n=ansible | PLAY RECAP *********************************************************************
+2024-08-07 12:07:49,768 p=146106 u=youssef n=ansible | 74.225.176.128             : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-08-07 12:09:07,068 p=146691 u=youssef n=ansible | PLAY [Install Git, Docker, and Docker Compose] *********************************
+2024-08-07 12:09:07,075 p=146691 u=youssef n=ansible | TASK [Gathering Facts] *********************************************************
+2024-08-07 12:09:07,802 p=146691 u=youssef n=ansible | fatal: [74.225.176.128]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Unable to negotiate with 74.225.176.128 port 22: no matching host key type found. Their offer: rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519", "unreachable": true}
+2024-08-07 12:09:07,804 p=146691 u=youssef n=ansible | PLAY RECAP *********************************************************************
+2024-08-07 12:09:07,804 p=146691 u=youssef n=ansible | 74.225.176.128             : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2024-08-07 12:09:22,159 p=146772 u=youssef n=ansible | PLAY [Install Git, Docker, and Docker Compose] *********************************
+2024-08-07 12:09:22,166 p=146772 u=youssef n=ansible | TASK [Gathering Facts] *********************************************************
+2024-08-07 12:09:31,678 p=146772 u=youssef n=ansible | ok: [74.225.176.128]
+2024-08-07 12:09:31,703 p=146772 u=youssef n=ansible | TASK [Update apt repository and upgrade packages] ******************************
+2024-08-07 12:10:14,057 p=146772 u=youssef n=ansible | changed: [74.225.176.128]
+2024-08-07 12:10:14,072 p=146772 u=youssef n=ansible | TASK [Install prerequisites] ***************************************************
+2024-08-07 12:10:24,102 p=146772 u=youssef n=ansible | changed: [74.225.176.128]
+2024-08-07 12:10:24,120 p=146772 u=youssef n=ansible | TASK [Add Docker GPG key] ******************************************************
+2024-08-07 12:10:29,559 p=146772 u=youssef n=ansible | fatal: [74.225.176.128]: FAILED! => {"changed": true, "cmd": ["curl", "-fsSL", "https://download.docker.com/linux/ubuntu/gpg", "|", "sudo", "gpg", "--dearmor", "-o", "/usr/share/keyrings/docker-archive-keyring.gpg"], "delta": "0:00:00.015053", "end": "2024-08-07 11:10:29.124615", "msg": "non-zero return code", "rc": 2, "start": "2024-08-07 11:10:29.109562", "stderr": "curl: option --dearmor: is unknown\ncurl: try 'curl --help' or 'curl --manual' for more information", "stderr_lines": ["curl: option --dearmor: is unknown", "curl: try 'curl --help' or 'curl --manual' for more information"], "stdout": "", "stdout_lines": []}
+2024-08-07 12:10:29,560 p=146772 u=youssef n=ansible | PLAY RECAP *********************************************************************
+2024-08-07 12:10:29,561 p=146772 u=youssef n=ansible | 74.225.176.128             : ok=3    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-08-07 12:12:02,853 p=148131 u=youssef n=ansible | PLAY [Install Git, Docker, and Docker Compose] *********************************
+2024-08-07 12:12:02,861 p=148131 u=youssef n=ansible | TASK [Gathering Facts] *********************************************************
+2024-08-07 12:12:12,264 p=148131 u=youssef n=ansible | ok: [74.225.176.128]
+2024-08-07 12:12:12,292 p=148131 u=youssef n=ansible | TASK [Update apt repository and upgrade packages] ******************************
+2024-08-07 12:12:19,145 p=148131 u=youssef n=ansible | ok: [74.225.176.128]
+2024-08-07 12:12:19,157 p=148131 u=youssef n=ansible | TASK [Install prerequisites] ***************************************************
+2024-08-07 12:12:25,041 p=148131 u=youssef n=ansible | ok: [74.225.176.128]
+2024-08-07 12:12:25,059 p=148131 u=youssef n=ansible | TASK [Add Docker GPG key] ******************************************************
+2024-08-07 12:12:29,754 p=148131 u=youssef n=ansible | changed: [74.225.176.128]
+2024-08-07 12:12:29,764 p=148131 u=youssef n=ansible | TASK [Add Docker repository] ***************************************************
+2024-08-07 12:12:34,565 p=148131 u=youssef n=ansible | changed: [74.225.176.128]
+2024-08-07 12:12:34,578 p=148131 u=youssef n=ansible | TASK [Update apt repository after adding Docker repository] ********************
+2024-08-07 12:12:49,819 p=148131 u=youssef n=ansible | changed: [74.225.176.128]
+2024-08-07 12:12:49,832 p=148131 u=youssef n=ansible | TASK [Install Docker] **********************************************************
+2024-08-07 12:13:25,868 p=148131 u=youssef n=ansible | changed: [74.225.176.128]
+2024-08-07 12:13:25,873 p=148131 u=youssef n=ansible | TASK [Start and enable Docker service] *****************************************
+2024-08-07 12:13:31,400 p=148131 u=youssef n=ansible | ok: [74.225.176.128]
+2024-08-07 12:13:31,409 p=148131 u=youssef n=ansible | TASK [Install pip for Python 3] ************************************************
+2024-08-07 12:14:17,569 p=148131 u=youssef n=ansible | changed: [74.225.176.128]
+2024-08-07 12:14:17,579 p=148131 u=youssef n=ansible | TASK [Upgrade pip] *************************************************************
+2024-08-07 12:14:23,821 p=148131 u=youssef n=ansible | ok: [74.225.176.128]
+2024-08-07 12:14:23,831 p=148131 u=youssef n=ansible | TASK [Install setuptools_rust] *************************************************
+2024-08-07 12:14:32,013 p=148131 u=youssef n=ansible | changed: [74.225.176.128]
+2024-08-07 12:14:32,025 p=148131 u=youssef n=ansible | TASK [Create Docker CLI plugins directory] *************************************
+2024-08-07 12:14:37,234 p=148131 u=youssef n=ansible | changed: [74.225.176.128]
+2024-08-07 12:14:37,244 p=148131 u=youssef n=ansible | TASK [Download Docker Compose] *************************************************
+2024-08-07 12:14:44,097 p=148131 u=youssef n=ansible | changed: [74.225.176.128]
+2024-08-07 12:14:44,109 p=148131 u=youssef n=ansible | TASK [Verify Docker Compose installation] **************************************
+2024-08-07 12:14:48,406 p=148131 u=youssef n=ansible | changed: [74.225.176.128]
+2024-08-07 12:14:48,422 p=148131 u=youssef n=ansible | PLAY RECAP *********************************************************************
+2024-08-07 12:14:48,422 p=148131 u=youssef n=ansible | 74.225.176.128             : ok=14   changed=9    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
